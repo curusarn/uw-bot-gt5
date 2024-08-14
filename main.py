@@ -17,7 +17,7 @@ class Bot:
         self.game.log_info(f"process ID: {pid}")
         self.game.log_info("starting")
         self.game.set_player_name("bot-py")
-        if os.getenv("UW_FORCE_NEW_GAME") != "1" and not self.game.try_reconnect():
+        if not self.game.try_reconnect():
             self.game.log_info("Failed to reconnect - will connect to a new game")
             self.game.set_start_gui(True)
             lobby = os.environ.get("UNNATURAL_CONNECT_LOBBY", "")
@@ -28,11 +28,11 @@ class Bot:
             elif addr != "" and port != "":
                 res = self.game.connect_direct(addr, port)
             else:
-                res = self.game.connect_new_server()
+                res = self.game.connect_new_server() # extra_params="-m special/combat-test.uw")
             self.game.log_info(f"Connect result: {res}")
 
         self.game.log_info("done")
-        self.game.log_info("fuck it - commiting sucide")
+        self.game.log_info("killing self")
         self.game.log_info(f"process ID: {pid}")
         os.kill(pid, signal.SIGTERM)
         
