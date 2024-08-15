@@ -1,0 +1,1799 @@
+[
+    {
+        "id": 2158615323,
+        "name": "metal",
+        "type": "Prototype.Resource",
+        "json": {
+            "id": 2158615323,
+            "name": "metal",
+            "type": 1
+        }
+    },
+    {
+        "id": 2196544483,
+        "name": "plasma emitter",
+        "type": "Prototype.Resource",
+        "json": {
+            "id": 2196544483,
+            "name": "plasma emitter",
+            "type": 1
+        }
+    },
+    {
+        "id": 2230550138,
+        "name": "alloys",
+        "type": "Prototype.Recipe",
+        "json": {
+            "id": 2230550138,
+            "name": "alloys",
+            "type": 2,
+            "inputs": {
+                "2158615323": 2
+            },
+            "outputs": {
+                "3836997004": 1
+            },
+            "duration": 200,
+            "placeOver": 0
+        }
+    },
+    {
+        "id": 2242162243,
+        "name": "plant 1",
+        "type": "Prototype.Unit",
+        "json": {
+            "id": 2242162243,
+            "name": "plant 1",
+            "type": 4,
+            "recipes": [],
+            "logistics": false,
+            "assembler": false,
+            "vital": false,
+            "maxLife": 2,
+            "armorType": 0,
+            "buildingRadius": 5
+        }
+    },
+    {
+        "id": 2288704829,
+        "name": "nucleus",
+        "type": "Prototype.Unit",
+        "json": {
+            "id": 2288704829,
+            "name": "nucleus",
+            "type": 4,
+            "recipes": [],
+            "logistics": false,
+            "assembler": false,
+            "vital": true,
+            "maxLife": 40,
+            "armorType": 1,
+            "damageType": 0,
+            "dps": 0.5,
+            "fireRange": 300,
+            "rateOfFire": 2,
+            "buildingRadius": 25
+        }
+    },
+    {
+        "id": 2333636005,
+        "name": "lurker",
+        "type": "Prototype.Unit",
+        "json": {
+            "id": 2333636005,
+            "name": "lurker",
+            "type": 4,
+            "recipes": [],
+            "logistics": false,
+            "assembler": false,
+            "vital": false,
+            "maxLife": 10,
+            "armorType": 0,
+            "damageType": 1,
+            "dps": 1,
+            "fireRange": 110,
+            "rateOfFire": 1,
+            "speeds": {
+                "0": 18,
+                "1": 18,
+                "2": 18,
+                "3": 18
+            },
+            "cargo": false
+        }
+    },
+    {
+        "id": 2357068402,
+        "name": "generator",
+        "type": "Prototype.Construction",
+        "json": {
+            "id": 2357068402,
+            "name": "generator",
+            "type": 3,
+            "inputs": {
+                "3287564941": 3,
+                "3722781291": 2
+            },
+            "output": 4011054105
+        }
+    },
+    {
+        "id": 2477449567,
+        "name": "experimental assembler",
+        "type": "Prototype.Unit",
+        "json": {
+            "id": 2477449567,
+            "name": "experimental assembler",
+            "type": 4,
+            "recipes": [
+                2623702566
+            ],
+            "logistics": false,
+            "assembler": true,
+            "vital": true,
+            "maxLife": 20,
+            "armorType": 1,
+            "buildingRadius": 35
+        }
+    },
+    {
+        "id": 2478530757,
+        "name": "thor",
+        "type": "Prototype.Unit",
+        "json": {
+            "id": 2478530757,
+            "name": "thor",
+            "type": 4,
+            "recipes": [],
+            "logistics": false,
+            "assembler": false,
+            "vital": false,
+            "maxLife": 20,
+            "armorType": 1,
+            "damageType": 2,
+            "dps": 0.1,
+            "fireRange": 10000,
+            "rateOfFire": 0.33333334,
+            "buildingRadius": 15
+        }
+    },
+    {
+        "id": 2490419583,
+        "name": "forgepress",
+        "type": "Prototype.Construction",
+        "json": {
+            "id": 2490419583,
+            "name": "forgepress",
+            "type": 3,
+            "inputs": {
+                "2158615323": 2,
+                "3722781291": 4
+            },
+            "output": 3469434410
+        }
+    },
+    {
+        "id": 2496184341,
+        "name": "mermaid",
+        "type": "Prototype.Unit",
+        "json": {
+            "id": 2496184341,
+            "name": "mermaid",
+            "type": 4,
+            "recipes": [],
+            "logistics": false,
+            "assembler": false,
+            "vital": false,
+            "maxLife": 10,
+            "armorType": 0,
+            "damageType": 3,
+            "dps": 1,
+            "fireRange": 110,
+            "rateOfFire": 1,
+            "speeds": {
+                "0": 18,
+                "1": 18,
+                "2": 18,
+                "4": 18
+            },
+            "cargo": false
+        }
+    },
+    {
+        "id": 2535003968,
+        "name": "aether deposit",
+        "type": "Prototype.Unit",
+        "json": {
+            "id": 2535003968,
+            "name": "aether deposit",
+            "type": 4,
+            "recipes": [],
+            "logistics": false,
+            "assembler": false,
+            "vital": false,
+            "maxLife": 1,
+            "armorType": 3,
+            "buildingRadius": 15
+        }
+    },
+    {
+        "id": 2548356902,
+        "name": "experimental assembler",
+        "type": "Prototype.Construction",
+        "json": {
+            "id": 2548356902,
+            "name": "experimental assembler",
+            "type": 3,
+            "inputs": {
+                "3391020317": 3,
+                "3586411477": 2,
+                "3722781291": 4
+            },
+            "output": 2477449567
+        }
+    },
+    {
+        "id": 2556828799,
+        "name": "armor plates",
+        "type": "Prototype.Recipe",
+        "json": {
+            "id": 2556828799,
+            "name": "armor plates",
+            "type": 2,
+            "inputs": {
+                "2158615323": 2
+            },
+            "outputs": {
+                "3287564941": 1
+            },
+            "duration": 400,
+            "placeOver": 0
+        }
+    },
+    {
+        "id": 2568842498,
+        "name": "quantum ray",
+        "type": "Prototype.Resource",
+        "json": {
+            "id": 2568842498,
+            "name": "quantum ray",
+            "type": 1
+        }
+    },
+    {
+        "id": 2583300698,
+        "name": "brick",
+        "type": "Prototype.Construction",
+        "json": {
+            "id": 2583300698,
+            "name": "brick",
+            "type": 3,
+            "inputs": {
+                "3287564941": 1
+            },
+            "output": 2943260537
+        }
+    },
+    {
+        "id": 2590915217,
+        "name": "eagle",
+        "type": "Prototype.Recipe",
+        "json": {
+            "id": 2590915217,
+            "name": "eagle",
+            "type": 2,
+            "inputs": {
+                "3836997004": 1
+            },
+            "outputs": {
+                "2841095254": 1
+            },
+            "duration": 400,
+            "placeOver": 0
+        }
+    },
+    {
+        "id": 2596836128,
+        "name": "oil",
+        "type": "Prototype.Resource",
+        "json": {
+            "id": 2596836128,
+            "name": "oil",
+            "type": 1
+        }
+    },
+    {
+        "id": 2615001512,
+        "name": "talos",
+        "type": "Prototype.Construction",
+        "json": {
+            "id": 2615001512,
+            "name": "talos",
+            "type": 3,
+            "inputs": {
+                "2158615323": 1,
+                "3722781291": 2
+            },
+            "output": 3279387927
+        }
+    },
+    {
+        "id": 2623702566,
+        "name": "colossus",
+        "type": "Prototype.Recipe",
+        "json": {
+            "id": 2623702566,
+            "name": "colossus",
+            "type": 2,
+            "inputs": {
+                "2568842498": 2,
+                "3255572154": 2,
+                "3586411477": 2,
+                "3836997004": 2
+            },
+            "outputs": {
+                "4215397419": 1
+            },
+            "duration": 1200,
+            "placeOver": 0
+        }
+    },
+    {
+        "id": 2632233739,
+        "name": "aether",
+        "type": "Prototype.Recipe",
+        "json": {
+            "id": 2632233739,
+            "name": "aether",
+            "type": 2,
+            "inputs": {},
+            "outputs": {
+                "3047436001": 1
+            },
+            "duration": 200,
+            "placeOver": 2535003968
+        }
+    },
+    {
+        "id": 2688628973,
+        "name": "plasma emitter",
+        "type": "Prototype.Recipe",
+        "json": {
+            "id": 2688628973,
+            "name": "plasma emitter",
+            "type": 2,
+            "inputs": {
+                "2158615323": 1,
+                "2596836128": 1
+            },
+            "outputs": {
+                "2196544483": 1
+            },
+            "duration": 400,
+            "placeOver": 0
+        }
+    },
+    {
+        "id": 2702889254,
+        "name": "metal deposit",
+        "type": "Prototype.Unit",
+        "json": {
+            "id": 2702889254,
+            "name": "metal deposit",
+            "type": 4,
+            "recipes": [],
+            "logistics": false,
+            "assembler": false,
+            "vital": false,
+            "maxLife": 1,
+            "armorType": 3,
+            "buildingRadius": 15
+        }
+    },
+    {
+        "id": 2717031940,
+        "name": "ATV",
+        "type": "Prototype.Recipe",
+        "json": {
+            "id": 2717031940,
+            "name": "ATV",
+            "type": 2,
+            "inputs": {
+                "2158615323": 2
+            },
+            "outputs": {
+                "2979425627": 1
+            },
+            "duration": 400,
+            "placeOver": 0
+        }
+    },
+    {
+        "id": 2731817562,
+        "name": "golem",
+        "type": "Prototype.Unit",
+        "json": {
+            "id": 2731817562,
+            "name": "golem",
+            "type": 4,
+            "recipes": [],
+            "logistics": false,
+            "assembler": false,
+            "vital": false,
+            "maxLife": 10,
+            "armorType": 4,
+            "damageType": 2,
+            "dps": 1.5,
+            "fireRange": 80,
+            "rateOfFire": 1,
+            "speeds": {
+                "0": 18,
+                "1": 18,
+                "2": 15
+            },
+            "cargo": false
+        }
+    },
+    {
+        "id": 2734962650,
+        "name": "mermaid",
+        "type": "Prototype.Recipe",
+        "json": {
+            "id": 2734962650,
+            "name": "mermaid",
+            "type": 2,
+            "inputs": {
+                "2989284381": 1,
+                "3047436001": 2,
+                "3836997004": 1
+            },
+            "outputs": {
+                "2496184341": 1
+            },
+            "duration": 400,
+            "placeOver": 0
+        }
+    },
+    {
+        "id": 2767715605,
+        "name": "blaster",
+        "type": "Prototype.Resource",
+        "json": {
+            "id": 2767715605,
+            "name": "blaster",
+            "type": 1
+        }
+    },
+    {
+        "id": 2775974627,
+        "name": "pump",
+        "type": "Prototype.Construction",
+        "json": {
+            "id": 2775974627,
+            "name": "pump",
+            "type": 3,
+            "inputs": {
+                "2158615323": 2,
+                "3722781291": 2
+            },
+            "output": 3858485622
+        }
+    },
+    {
+        "id": 2780540407,
+        "name": "blender",
+        "type": "Prototype.Construction",
+        "json": {
+            "id": 2780540407,
+            "name": "blender",
+            "type": 3,
+            "inputs": {
+                "3722781291": 4
+            },
+            "output": 4113309044
+        }
+    },
+    {
+        "id": 2787212774,
+        "name": "tree 1",
+        "type": "Prototype.Unit",
+        "json": {
+            "id": 2787212774,
+            "name": "tree 1",
+            "type": 4,
+            "recipes": [],
+            "logistics": false,
+            "assembler": false,
+            "vital": false,
+            "maxLife": 5,
+            "armorType": 0,
+            "buildingRadius": 15
+        }
+    },
+    {
+        "id": 2816926375,
+        "name": "atomic forge",
+        "type": "Prototype.Recipe",
+        "json": {
+            "id": 2816926375,
+            "name": "atomic forge",
+            "type": 2,
+            "inputs": {
+                "3803070978": 1,
+                "3836997004": 1
+            },
+            "outputs": {
+                "3391020317": 1
+            },
+            "duration": 800,
+            "placeOver": 0
+        }
+    },
+    {
+        "id": 2822785820,
+        "name": "plant 4",
+        "type": "Prototype.Unit",
+        "json": {
+            "id": 2822785820,
+            "name": "plant 4",
+            "type": 4,
+            "recipes": [],
+            "logistics": false,
+            "assembler": false,
+            "vital": false,
+            "maxLife": 2,
+            "armorType": 0,
+            "buildingRadius": 5
+        }
+    },
+    {
+        "id": 2832193735,
+        "name": "kitsune",
+        "type": "Prototype.Unit",
+        "json": {
+            "id": 2832193735,
+            "name": "kitsune",
+            "type": 4,
+            "recipes": [],
+            "logistics": false,
+            "assembler": false,
+            "vital": false,
+            "maxLife": 4,
+            "armorType": 0,
+            "damageType": 0,
+            "dps": 0.2,
+            "fireRange": 80,
+            "rateOfFire": 1,
+            "speeds": {
+                "0": 30,
+                "1": 30,
+                "2": 27
+            },
+            "cargo": false
+        }
+    },
+    {
+        "id": 2835652646,
+        "name": "vehicle assembler",
+        "type": "Prototype.Construction",
+        "json": {
+            "id": 2835652646,
+            "name": "vehicle assembler",
+            "type": 3,
+            "inputs": {
+                "3722781291": 4
+            },
+            "output": 4002553237
+        }
+    },
+    {
+        "id": 2841095254,
+        "name": "eagle",
+        "type": "Prototype.Unit",
+        "json": {
+            "id": 2841095254,
+            "name": "eagle",
+            "type": 4,
+            "recipes": [],
+            "logistics": false,
+            "assembler": false,
+            "vital": false,
+            "maxLife": 3,
+            "armorType": 0,
+            "damageType": 0,
+            "dps": 0.1,
+            "fireRange": 140,
+            "rateOfFire": 1,
+            "speeds": {
+                "0": 24,
+                "1": 24,
+                "2": 24,
+                "3": 24,
+                "4": 24
+            },
+            "cargo": false
+        }
+    },
+    {
+        "id": 2856110816,
+        "name": "twinfire",
+        "type": "Prototype.Unit",
+        "json": {
+            "id": 2856110816,
+            "name": "twinfire",
+            "type": 4,
+            "recipes": [],
+            "logistics": false,
+            "assembler": false,
+            "vital": false,
+            "maxLife": 10,
+            "armorType": 2,
+            "damageType": 3,
+            "dps": 1,
+            "fireRange": 110,
+            "rateOfFire": 2,
+            "speeds": {
+                "0": 18,
+                "1": 18,
+                "2": 15
+            },
+            "cargo": false
+        }
+    },
+    {
+        "id": 2856894853,
+        "name": "reinforced concrete",
+        "type": "Prototype.Recipe",
+        "json": {
+            "id": 2856894853,
+            "name": "reinforced concrete",
+            "type": 2,
+            "inputs": {
+                "2158615323": 2
+            },
+            "outputs": {
+                "3722781291": 1
+            },
+            "duration": 300,
+            "placeOver": 0
+        }
+    },
+    {
+        "id": 2874414131,
+        "name": "rail gun",
+        "type": "Prototype.Recipe",
+        "json": {
+            "id": 2874414131,
+            "name": "rail gun",
+            "type": 2,
+            "inputs": {
+                "2158615323": 2
+            },
+            "outputs": {
+                "2989284381": 1
+            },
+            "duration": 400,
+            "placeOver": 0
+        }
+    },
+    {
+        "id": 2943260537,
+        "name": "brick",
+        "type": "Prototype.Unit",
+        "json": {
+            "id": 2943260537,
+            "name": "brick",
+            "type": 4,
+            "recipes": [],
+            "logistics": false,
+            "assembler": false,
+            "vital": false,
+            "maxLife": 60,
+            "armorType": 1,
+            "buildingRadius": 15
+        }
+    },
+    {
+        "id": 2979425627,
+        "name": "ATV",
+        "type": "Prototype.Unit",
+        "json": {
+            "id": 2979425627,
+            "name": "ATV",
+            "type": 4,
+            "recipes": [],
+            "logistics": true,
+            "assembler": false,
+            "vital": false,
+            "maxLife": 5,
+            "armorType": 0,
+            "speeds": {
+                "0": 24,
+                "1": 24,
+                "2": 21,
+                "3": 19
+            },
+            "cargo": true
+        }
+    },
+    {
+        "id": 2989284381,
+        "name": "rail gun",
+        "type": "Prototype.Resource",
+        "json": {
+            "id": 2989284381,
+            "name": "rail gun",
+            "type": 1
+        }
+    },
+    {
+        "id": 2996929187,
+        "name": "crystals",
+        "type": "Prototype.Resource",
+        "json": {
+            "id": 2996929187,
+            "name": "crystals",
+            "type": 1
+        }
+    },
+    {
+        "id": 3016913272,
+        "name": "tree 3",
+        "type": "Prototype.Unit",
+        "json": {
+            "id": 3016913272,
+            "name": "tree 3",
+            "type": 4,
+            "recipes": [],
+            "logistics": false,
+            "assembler": false,
+            "vital": false,
+            "maxLife": 5,
+            "armorType": 0,
+            "buildingRadius": 15
+        }
+    },
+    {
+        "id": 3033048654,
+        "name": "paladin",
+        "type": "Prototype.Recipe",
+        "json": {
+            "id": 3033048654,
+            "name": "paladin",
+            "type": 2,
+            "inputs": {
+                "2158615323": 2,
+                "2996929187": 2
+            },
+            "outputs": {
+                "3698585473": 1
+            },
+            "duration": 400,
+            "placeOver": 0
+        }
+    },
+    {
+        "id": 3047436001,
+        "name": "aether",
+        "type": "Prototype.Resource",
+        "json": {
+            "id": 3047436001,
+            "name": "aether",
+            "type": 1
+        }
+    },
+    {
+        "id": 3068584269,
+        "name": "laboratory",
+        "type": "Prototype.Unit",
+        "json": {
+            "id": 3068584269,
+            "name": "laboratory",
+            "type": 4,
+            "recipes": [
+                2816926375,
+                4039242008,
+                4128605704
+            ],
+            "logistics": false,
+            "assembler": true,
+            "vital": false,
+            "maxLife": 20,
+            "armorType": 1,
+            "buildingRadius": 25
+        }
+    },
+    {
+        "id": 3122389346,
+        "name": "factory",
+        "type": "Prototype.Unit",
+        "json": {
+            "id": 3122389346,
+            "name": "factory",
+            "type": 4,
+            "recipes": [
+                2590915217,
+                2717031940,
+                3033048654,
+                3302050176
+            ],
+            "logistics": false,
+            "assembler": true,
+            "vital": true,
+            "maxLife": 20,
+            "armorType": 1,
+            "buildingRadius": 25
+        }
+    },
+    {
+        "id": 3148228606,
+        "name": "drill",
+        "type": "Prototype.Construction",
+        "json": {
+            "id": 3148228606,
+            "name": "drill",
+            "type": 3,
+            "inputs": {
+                "3722781291": 3
+            },
+            "output": 3217890637
+        }
+    },
+    {
+        "id": 3162274884,
+        "name": "power cell",
+        "type": "Prototype.Recipe",
+        "json": {
+            "id": 3162274884,
+            "name": "power cell",
+            "type": 2,
+            "inputs": {
+                "2158615323": 1,
+                "2596836128": 1
+            },
+            "outputs": {
+                "3554842314": 1
+            },
+            "duration": 400,
+            "placeOver": 0
+        }
+    },
+    {
+        "id": 3166875448,
+        "name": "lurker",
+        "type": "Prototype.Recipe",
+        "json": {
+            "id": 3166875448,
+            "name": "lurker",
+            "type": 2,
+            "inputs": {
+                "2196544483": 1,
+                "3836997004": 2
+            },
+            "outputs": {
+                "2333636005": 1
+            },
+            "duration": 400,
+            "placeOver": 0
+        }
+    },
+    {
+        "id": 3215111127,
+        "name": "reinforced plates",
+        "type": "Prototype.Recipe",
+        "json": {
+            "id": 3215111127,
+            "name": "reinforced plates",
+            "type": 2,
+            "inputs": {
+                "2996929187": 1,
+                "3836997004": 1
+            },
+            "outputs": {
+                "3586411477": 1
+            },
+            "duration": 600,
+            "placeOver": 0
+        }
+    },
+    {
+        "id": 3217890637,
+        "name": "drill",
+        "type": "Prototype.Unit",
+        "json": {
+            "id": 3217890637,
+            "name": "drill",
+            "type": 4,
+            "recipes": [
+                4152259257,
+                4281440077
+            ],
+            "logistics": false,
+            "assembler": true,
+            "vital": false,
+            "maxLife": 20,
+            "armorType": 1,
+            "buildingRadius": 25
+        }
+    },
+    {
+        "id": 3223804226,
+        "name": "arsenal",
+        "type": "Prototype.Unit",
+        "json": {
+            "id": 3223804226,
+            "name": "arsenal",
+            "type": 4,
+            "recipes": [
+                2688628973,
+                2874414131,
+                4211563915
+            ],
+            "logistics": false,
+            "assembler": true,
+            "vital": false,
+            "maxLife": 10,
+            "armorType": 1,
+            "buildingRadius": 15
+        }
+    },
+    {
+        "id": 3226273052,
+        "name": "cyclops",
+        "type": "Prototype.Recipe",
+        "json": {
+            "id": 3226273052,
+            "name": "cyclops",
+            "type": 2,
+            "inputs": {
+                "2158615323": 2,
+                "2568842498": 1,
+                "3287564941": 1
+            },
+            "outputs": {
+                "4048943391": 1
+            },
+            "duration": 800,
+            "placeOver": 0
+        }
+    },
+    {
+        "id": 3248031062,
+        "name": "crystals deposit",
+        "type": "Prototype.Unit",
+        "json": {
+            "id": 3248031062,
+            "name": "crystals deposit",
+            "type": 4,
+            "recipes": [],
+            "logistics": false,
+            "assembler": false,
+            "vital": false,
+            "maxLife": 1,
+            "armorType": 3,
+            "buildingRadius": 15
+        }
+    },
+    {
+        "id": 3255572154,
+        "name": "shield projector",
+        "type": "Prototype.Resource",
+        "json": {
+            "id": 3255572154,
+            "name": "shield projector",
+            "type": 1
+        }
+    },
+    {
+        "id": 3279387927,
+        "name": "talos",
+        "type": "Prototype.Unit",
+        "json": {
+            "id": 3279387927,
+            "name": "talos",
+            "type": 4,
+            "recipes": [],
+            "logistics": false,
+            "assembler": false,
+            "vital": false,
+            "maxLife": 20,
+            "armorType": 1,
+            "damageType": 0,
+            "dps": 0.7,
+            "fireRange": 170,
+            "rateOfFire": 1,
+            "buildingRadius": 15
+        }
+    },
+    {
+        "id": 3284674122,
+        "name": "plant 6",
+        "type": "Prototype.Unit",
+        "json": {
+            "id": 3284674122,
+            "name": "plant 6",
+            "type": 4,
+            "recipes": [],
+            "logistics": false,
+            "assembler": false,
+            "vital": false,
+            "maxLife": 2,
+            "armorType": 0,
+            "buildingRadius": 5
+        }
+    },
+    {
+        "id": 3287564941,
+        "name": "armor plates",
+        "type": "Prototype.Resource",
+        "json": {
+            "id": 3287564941,
+            "name": "armor plates",
+            "type": 1
+        }
+    },
+    {
+        "id": 3299285910,
+        "name": "oil",
+        "type": "Prototype.Recipe",
+        "json": {
+            "id": 3299285910,
+            "name": "oil",
+            "type": 2,
+            "inputs": {},
+            "outputs": {
+                "2596836128": 1
+            },
+            "duration": 200,
+            "placeOver": 3984569945
+        }
+    },
+    {
+        "id": 3302050176,
+        "name": "kitsune",
+        "type": "Prototype.Recipe",
+        "json": {
+            "id": 3302050176,
+            "name": "kitsune",
+            "type": 2,
+            "inputs": {
+                "2158615323": 2
+            },
+            "outputs": {
+                "2832193735": 1
+            },
+            "duration": 400,
+            "placeOver": 0
+        }
+    },
+    {
+        "id": 3329230441,
+        "name": "twinfire",
+        "type": "Prototype.Recipe",
+        "json": {
+            "id": 3329230441,
+            "name": "twinfire",
+            "type": 2,
+            "inputs": {
+                "2158615323": 2,
+                "2989284381": 1,
+                "3287564941": 1
+            },
+            "outputs": {
+                "2856110816": 1
+            },
+            "duration": 400,
+            "placeOver": 0
+        }
+    },
+    {
+        "id": 3364646415,
+        "name": "plant 5",
+        "type": "Prototype.Unit",
+        "json": {
+            "id": 3364646415,
+            "name": "plant 5",
+            "type": 4,
+            "recipes": [],
+            "logistics": false,
+            "assembler": false,
+            "vital": false,
+            "maxLife": 2,
+            "armorType": 0,
+            "buildingRadius": 5
+        }
+    },
+    {
+        "id": 3391020317,
+        "name": "atomic forge",
+        "type": "Prototype.Resource",
+        "json": {
+            "id": 3391020317,
+            "name": "atomic forge",
+            "type": 1
+        }
+    },
+    {
+        "id": 3427995591,
+        "name": "smelter",
+        "type": "Prototype.Construction",
+        "json": {
+            "id": 3427995591,
+            "name": "smelter",
+            "type": 3,
+            "inputs": {
+                "3554842314": 2,
+                "3722781291": 2
+            },
+            "output": 4163883564
+        }
+    },
+    {
+        "id": 3447737998,
+        "name": "plant 2",
+        "type": "Prototype.Unit",
+        "json": {
+            "id": 3447737998,
+            "name": "plant 2",
+            "type": 4,
+            "recipes": [],
+            "logistics": false,
+            "assembler": false,
+            "vital": false,
+            "maxLife": 2,
+            "armorType": 0,
+            "buildingRadius": 5
+        }
+    },
+    {
+        "id": 3457903509,
+        "name": "tree 4",
+        "type": "Prototype.Unit",
+        "json": {
+            "id": 3457903509,
+            "name": "tree 4",
+            "type": 4,
+            "recipes": [],
+            "logistics": false,
+            "assembler": false,
+            "vital": false,
+            "maxLife": 5,
+            "armorType": 0,
+            "buildingRadius": 15
+        }
+    },
+    {
+        "id": 3469434410,
+        "name": "forgepress",
+        "type": "Prototype.Unit",
+        "json": {
+            "id": 3469434410,
+            "name": "forgepress",
+            "type": 4,
+            "recipes": [
+                2556828799,
+                3215111127
+            ],
+            "logistics": false,
+            "assembler": true,
+            "vital": false,
+            "maxLife": 20,
+            "armorType": 1,
+            "buildingRadius": 25
+        }
+    },
+    {
+        "id": 3490730529,
+        "name": "plant 3",
+        "type": "Prototype.Unit",
+        "json": {
+            "id": 3490730529,
+            "name": "plant 3",
+            "type": 4,
+            "recipes": [],
+            "logistics": false,
+            "assembler": false,
+            "vital": false,
+            "maxLife": 2,
+            "armorType": 0,
+            "buildingRadius": 5
+        }
+    },
+    {
+        "id": 3554842314,
+        "name": "power cell",
+        "type": "Prototype.Resource",
+        "json": {
+            "id": 3554842314,
+            "name": "power cell",
+            "type": 1
+        }
+    },
+    {
+        "id": 3556640323,
+        "name": "juggernaut",
+        "type": "Prototype.Recipe",
+        "json": {
+            "id": 3556640323,
+            "name": "juggernaut",
+            "type": 2,
+            "inputs": {
+                "2158615323": 3,
+                "2196544483": 1,
+                "3255572154": 1
+            },
+            "outputs": {
+                "3867215754": 1
+            },
+            "duration": 400,
+            "placeOver": 0
+        }
+    },
+    {
+        "id": 3586411477,
+        "name": "reinforced plates",
+        "type": "Prototype.Resource",
+        "json": {
+            "id": 3586411477,
+            "name": "reinforced plates",
+            "type": 1
+        }
+    },
+    {
+        "id": 3628129933,
+        "name": "golem",
+        "type": "Prototype.Recipe",
+        "json": {
+            "id": 3628129933,
+            "name": "golem",
+            "type": 2,
+            "inputs": {
+                "2158615323": 2,
+                "2767715605": 1,
+                "3255572154": 1
+            },
+            "outputs": {
+                "2731817562": 1
+            },
+            "duration": 400,
+            "placeOver": 0
+        }
+    },
+    {
+        "id": 3674368048,
+        "name": "thor",
+        "type": "Prototype.Construction",
+        "json": {
+            "id": 3674368048,
+            "name": "thor",
+            "type": 3,
+            "inputs": {
+                "2767715605": 1,
+                "3391020317": 2,
+                "3722781291": 4
+            },
+            "output": 2478530757
+        }
+    },
+    {
+        "id": 3698585473,
+        "name": "paladin",
+        "type": "Prototype.Unit",
+        "json": {
+            "id": 3698585473,
+            "name": "paladin",
+            "type": 4,
+            "recipes": [],
+            "logistics": false,
+            "assembler": false,
+            "vital": false,
+            "maxLife": 20,
+            "armorType": 4,
+            "damageType": 0,
+            "dps": 0.15,
+            "fireRange": 80,
+            "rateOfFire": 2,
+            "speeds": {
+                "0": 18,
+                "1": 18,
+                "2": 15
+            },
+            "cargo": false
+        }
+    },
+    {
+        "id": 3722781291,
+        "name": "reinforced concrete",
+        "type": "Prototype.Resource",
+        "json": {
+            "id": 3722781291,
+            "name": "reinforced concrete",
+            "type": 1
+        }
+    },
+    {
+        "id": 3803070978,
+        "name": "quark foam",
+        "type": "Prototype.Resource",
+        "json": {
+            "id": 3803070978,
+            "name": "quark foam",
+            "type": 1
+        }
+    },
+    {
+        "id": 3824759948,
+        "name": "bot assembler",
+        "type": "Prototype.Unit",
+        "json": {
+            "id": 3824759948,
+            "name": "bot assembler",
+            "type": 4,
+            "recipes": [
+                3166875448,
+                3556640323,
+                3628129933
+            ],
+            "logistics": false,
+            "assembler": true,
+            "vital": true,
+            "maxLife": 20,
+            "armorType": 1,
+            "buildingRadius": 25
+        }
+    },
+    {
+        "id": 3836997004,
+        "name": "alloys",
+        "type": "Prototype.Resource",
+        "json": {
+            "id": 3836997004,
+            "name": "alloys",
+            "type": 1
+        }
+    },
+    {
+        "id": 3842937275,
+        "name": "tree 2",
+        "type": "Prototype.Unit",
+        "json": {
+            "id": 3842937275,
+            "name": "tree 2",
+            "type": 4,
+            "recipes": [],
+            "logistics": false,
+            "assembler": false,
+            "vital": false,
+            "maxLife": 5,
+            "armorType": 0,
+            "buildingRadius": 15
+        }
+    },
+    {
+        "id": 3858485622,
+        "name": "pump",
+        "type": "Prototype.Unit",
+        "json": {
+            "id": 3858485622,
+            "name": "pump",
+            "type": 4,
+            "recipes": [
+                2632233739,
+                3299285910
+            ],
+            "logistics": false,
+            "assembler": true,
+            "vital": false,
+            "maxLife": 20,
+            "armorType": 1,
+            "buildingRadius": 25
+        }
+    },
+    {
+        "id": 3867215754,
+        "name": "juggernaut",
+        "type": "Prototype.Unit",
+        "json": {
+            "id": 3867215754,
+            "name": "juggernaut",
+            "type": 4,
+            "recipes": [],
+            "logistics": false,
+            "assembler": false,
+            "vital": false,
+            "maxLife": 10,
+            "armorType": 4,
+            "damageType": 1,
+            "dps": 1,
+            "fireRange": 110,
+            "rateOfFire": 1,
+            "speeds": {
+                "0": 18,
+                "1": 18,
+                "2": 15
+            },
+            "cargo": false
+        }
+    },
+    {
+        "id": 3941207240,
+        "name": "laboratory",
+        "type": "Prototype.Construction",
+        "json": {
+            "id": 3941207240,
+            "name": "laboratory",
+            "type": 3,
+            "inputs": {
+                "2996929187": 2,
+                "3722781291": 4
+            },
+            "output": 3068584269
+        }
+    },
+    {
+        "id": 3984569945,
+        "name": "oil deposit",
+        "type": "Prototype.Unit",
+        "json": {
+            "id": 3984569945,
+            "name": "oil deposit",
+            "type": 4,
+            "recipes": [],
+            "logistics": false,
+            "assembler": false,
+            "vital": false,
+            "maxLife": 1,
+            "armorType": 3,
+            "buildingRadius": 15
+        }
+    },
+    {
+        "id": 4002553237,
+        "name": "vehicle assembler",
+        "type": "Prototype.Unit",
+        "json": {
+            "id": 4002553237,
+            "name": "vehicle assembler",
+            "type": 4,
+            "recipes": [
+                2734962650,
+                3226273052,
+                3329230441
+            ],
+            "logistics": false,
+            "assembler": true,
+            "vital": true,
+            "maxLife": 20,
+            "armorType": 1,
+            "buildingRadius": 25
+        }
+    },
+    {
+        "id": 4011054105,
+        "name": "generator",
+        "type": "Prototype.Unit",
+        "json": {
+            "id": 4011054105,
+            "name": "generator",
+            "type": 4,
+            "recipes": [
+                3162274884
+            ],
+            "logistics": false,
+            "assembler": true,
+            "vital": false,
+            "maxLife": 20,
+            "armorType": 1,
+            "buildingRadius": 15
+        }
+    },
+    {
+        "id": 4022789762,
+        "name": "heimdall",
+        "type": "Prototype.Unit",
+        "json": {
+            "id": 4022789762,
+            "name": "heimdall",
+            "type": 4,
+            "recipes": [],
+            "logistics": false,
+            "assembler": false,
+            "vital": false,
+            "maxLife": 60,
+            "armorType": 1,
+            "damageType": 4,
+            "dps": 5,
+            "fireRange": 170,
+            "rateOfFire": 2,
+            "buildingRadius": 15
+        }
+    },
+    {
+        "id": 4039242008,
+        "name": "quantum ray",
+        "type": "Prototype.Recipe",
+        "json": {
+            "id": 4039242008,
+            "name": "quantum ray",
+            "type": 2,
+            "inputs": {
+                "3554842314": 1,
+                "3803070978": 1
+            },
+            "outputs": {
+                "2568842498": 1
+            },
+            "duration": 800,
+            "placeOver": 0
+        }
+    },
+    {
+        "id": 4048943391,
+        "name": "cyclops",
+        "type": "Prototype.Unit",
+        "json": {
+            "id": 4048943391,
+            "name": "cyclops",
+            "type": 4,
+            "recipes": [],
+            "logistics": false,
+            "assembler": false,
+            "vital": false,
+            "maxLife": 10,
+            "armorType": 2,
+            "damageType": 4,
+            "dps": 0.4,
+            "fireRange": 200,
+            "rateOfFire": 0.5,
+            "speeds": {
+                "0": 18,
+                "1": 18,
+                "2": 15
+            },
+            "cargo": false
+        }
+    },
+    {
+        "id": 4111092813,
+        "name": "factory",
+        "type": "Prototype.Construction",
+        "json": {
+            "id": 4111092813,
+            "name": "factory",
+            "type": 3,
+            "inputs": {
+                "3722781291": 4
+            },
+            "output": 3122389346
+        }
+    },
+    {
+        "id": 4113309044,
+        "name": "blender",
+        "type": "Prototype.Unit",
+        "json": {
+            "id": 4113309044,
+            "name": "blender",
+            "type": 4,
+            "recipes": [
+                4280384188
+            ],
+            "logistics": false,
+            "assembler": true,
+            "vital": false,
+            "maxLife": 20,
+            "armorType": 1,
+            "buildingRadius": 25
+        }
+    },
+    {
+        "id": 4114606063,
+        "name": "heimdall",
+        "type": "Prototype.Construction",
+        "json": {
+            "id": 4114606063,
+            "name": "heimdall",
+            "type": 3,
+            "inputs": {
+                "2568842498": 2,
+                "3586411477": 1,
+                "3722781291": 2
+            },
+            "output": 4022789762
+        }
+    },
+    {
+        "id": 4128605704,
+        "name": "shield projector",
+        "type": "Prototype.Recipe",
+        "json": {
+            "id": 4128605704,
+            "name": "shield projector",
+            "type": 2,
+            "inputs": {
+                "2996929187": 2
+            },
+            "outputs": {
+                "3255572154": 1
+            },
+            "duration": 400,
+            "placeOver": 0
+        }
+    },
+    {
+        "id": 4152259257,
+        "name": "crystals",
+        "type": "Prototype.Recipe",
+        "json": {
+            "id": 4152259257,
+            "name": "crystals",
+            "type": 2,
+            "inputs": {},
+            "outputs": {
+                "2996929187": 1
+            },
+            "duration": 200,
+            "placeOver": 3248031062
+        }
+    },
+    {
+        "id": 4163492497,
+        "name": "arsenal",
+        "type": "Prototype.Construction",
+        "json": {
+            "id": 4163492497,
+            "name": "arsenal",
+            "type": 3,
+            "inputs": {
+                "3722781291": 2
+            },
+            "output": 3223804226
+        }
+    },
+    {
+        "id": 4163883564,
+        "name": "smelter",
+        "type": "Prototype.Unit",
+        "json": {
+            "id": 4163883564,
+            "name": "smelter",
+            "type": 4,
+            "recipes": [
+                2230550138
+            ],
+            "logistics": false,
+            "assembler": true,
+            "vital": false,
+            "maxLife": 20,
+            "armorType": 1,
+            "buildingRadius": 25
+        }
+    },
+    {
+        "id": 4188221053,
+        "name": "concrete plant",
+        "type": "Prototype.Unit",
+        "json": {
+            "id": 4188221053,
+            "name": "concrete plant",
+            "type": 4,
+            "recipes": [
+                2856894853
+            ],
+            "logistics": false,
+            "assembler": true,
+            "vital": false,
+            "maxLife": 10,
+            "armorType": 1,
+            "buildingRadius": 15
+        }
+    },
+    {
+        "id": 4211563915,
+        "name": "blaster",
+        "type": "Prototype.Recipe",
+        "json": {
+            "id": 4211563915,
+            "name": "blaster",
+            "type": 2,
+            "inputs": {
+                "2158615323": 1,
+                "3554842314": 1
+            },
+            "outputs": {
+                "2767715605": 1
+            },
+            "duration": 400,
+            "placeOver": 0
+        }
+    },
+    {
+        "id": 4215397419,
+        "name": "colossus",
+        "type": "Prototype.Unit",
+        "json": {
+            "id": 4215397419,
+            "name": "colossus",
+            "type": 4,
+            "recipes": [],
+            "logistics": false,
+            "assembler": false,
+            "vital": false,
+            "maxLife": 40,
+            "armorType": 4,
+            "damageType": 4,
+            "dps": 5,
+            "fireRange": 140,
+            "rateOfFire": 2,
+            "speeds": {
+                "0": 18,
+                "1": 18,
+                "2": 15
+            },
+            "cargo": false
+        }
+    },
+    {
+        "id": 4269368915,
+        "name": "bot assembler",
+        "type": "Prototype.Construction",
+        "json": {
+            "id": 4269368915,
+            "name": "bot assembler",
+            "type": 3,
+            "inputs": {
+                "3722781291": 4
+            },
+            "output": 3824759948
+        }
+    },
+    {
+        "id": 4280384188,
+        "name": "quark foam",
+        "type": "Prototype.Recipe",
+        "json": {
+            "id": 4280384188,
+            "name": "quark foam",
+            "type": 2,
+            "inputs": {
+                "2596836128": 1,
+                "3047436001": 3
+            },
+            "outputs": {
+                "3803070978": 1
+            },
+            "duration": 1800,
+            "placeOver": 0
+        }
+    },
+    {
+        "id": 4280907216,
+        "name": "concrete plant",
+        "type": "Prototype.Construction",
+        "json": {
+            "id": 4280907216,
+            "name": "concrete plant",
+            "type": 3,
+            "inputs": {
+                "3722781291": 2
+            },
+            "output": 4188221053
+        }
+    },
+    {
+        "id": 4281440077,
+        "name": "metal",
+        "type": "Prototype.Recipe",
+        "json": {
+            "id": 4281440077,
+            "name": "metal",
+            "type": 2,
+            "inputs": {},
+            "outputs": {
+                "2158615323": 1
+            },
+            "duration": 200,
+            "placeOver": 2702889254
+        }
+    }
+]
