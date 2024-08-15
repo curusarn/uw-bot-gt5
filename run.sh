@@ -16,3 +16,6 @@ while true; do
 
     read -p "Press any key to continue... " -n1 -s
 done
+
+
+# need to wait

@@ -4,3 +4,5 @@ Unit
 Recipe
 Construction
 Resource
+
+area_neibourhood
