@@ -39,7 +39,7 @@ class Bot:
         self.game.set_player_color(1, 0, 0)
 
         if not self.game.try_reconnect():
-            port = None 
+            port = None
             if port:
                 self.game.set_start_gui(True)
                 self.game.connect_direct("192.168.2.102", port)
@@ -167,14 +167,16 @@ class Bot:
             for e in self.game.world.entities().values()
             if e.policy() == uw.Policy.Enemy and e.has("Unit") and self.game.prototypes.unit(e.Proto.proto).get("name", "") != "eagle"
         ]
-        threshold = 20000 if aggression else 710
+        # MARK distance thresholds
+        DEFENSE_DISTANCE = 820
+        threshold = 20000 if aggression else DEFENSE_DISTANCE
         enemy_units = sorted(filter(lambda x: x["dist"] < threshold, enemy_units), key=lambda x: x["dist"])
         if not enemy_units:
             print("No enemy units found - falling back to nucleus")
             if random.random() > 0.80:
                 self.scatter()
             else:
-                self.send_to_nucleus()
+                self.send_to_talos()
             return
 
         print(f"Attacking closest enemy unit, distance {enemy_units[0]['dist']}")
@@ -186,10 +188,15 @@ class Bot:
             
             if closest_to_self:
                 enemy_units = sorted(enemy_units, key=lambda x: self.game.map.distance_estimate(x["e"].Position.position, pos))
-
-            self.game.commands.order(
-                _id, self.game.commands.fight_to_entity(enemy_units[0]["e"].Id)
-            )
+            
+            if random.random() > 0.80 and len(enemy_units) > 1:
+                self.game.commands.order(
+                    _id, self.game.commands.fight_to_entity(enemy_units[1]["e"].Id)
+                )
+            else:
+                self.game.commands.order(
+                    _id, self.game.commands.fight_to_entity(enemy_units[0]["e"].Id)
+                )
     
 
     def attack_nearest_enemies(self, clear_orders=True, entity=None):
@@ -228,14 +235,14 @@ class Bot:
                     _id, self.game.commands.fight_to_entity(enemy.Id)
                 )
     
-    def scatter(self):
+    def scatter(self, include_atvs=False):
         own_units = [
             e
             for e in self.game.world.entities().values()
             if e.own()
             and e.has("Unit")
             and self.game.prototypes.unit(e.Proto.proto)
-            and self.game.prototypes.unit(e.Proto.proto).get("dps", 0) > 0
+            and (self.game.prototypes.unit(e.Proto.proto).get("dps", 0) > 0 or include_atvs)
         ]
         if not own_units:
             return
@@ -249,9 +256,44 @@ class Bot:
                 _id, self.game.commands.run_to_position(new_pos)
             )
     
+    def send_to_talos(self):
+        own_units = [
+            e
+            for e in self.game.world.entities().values()
+            if e.own()
+            and e.has("Unit")
+            and self.game.prototypes.unit(e.Proto.proto)
+            and self.game.prototypes.unit(e.Proto.proto).get("dps", 0) > 0
+        ]
+        talos = self.buildings.get("talos", []) + [self.main_building]
 
+        enemy_units = [
+            e
+            for e in self.game.world.entities().values()
+            if e.policy() == uw.Policy.Enemy and e.has("Unit")
+        ]
+        # find talos closest to enemy
+        the_talos = random.choice(talos)
+        dist = 1000000
+        for t in talos:
+            closest_dist = 1000000
+            for e in enemy_units:
+                d = self.game.map.distance_estimate(t.Position.position, e.Position.position)
+                if d < closest_dist and random.random() > 0.8:
+                    closest_dist = d
+            
+            if closest_dist < dist and random.random() > 0.2:
+                dist = closest_dist
+                the_talos = t
+        
+        for u in own_units:
+            _id = u.Id
+            if len(self.game.commands.orders(_id)) == 0:
+                # run to entity
+                self.game.commands.order(_id, self.game.commands.run_to_entity(the_talos.Id))
 
     def assign_recipes(self):
+        already_have_armor_plates = False
         for e in self.game.world.entities().values():
             if not (e.own() and hasattr(e, "Unit")):
                 continue
@@ -270,11 +312,18 @@ class Bot:
                         # smelter
                         self.game.commands.command_set_recipe(e.Id, self.recipe_id_by_name.get("atomic forge"))
                 elif name == "forgepress":
-                    if self.is_nearby(e, "metal deposit", radius=15):
-                        self.game.commands.command_set_recipe(e.Id, self.recipe_id_by_name.get("armor plates"))
-                    else:
-                        # smelter
+                    if already_have_armor_plates:
                         self.game.commands.command_set_recipe(e.Id, self.recipe_id_by_name.get("reinforced plates"))
+                        continue
+
+                    for i in [4, 6, 8, 10, 12, 14, 16]:
+                        if self.is_nearby(e, "smelter", radius=i):
+                            # smelter
+                            self.game.commands.command_set_recipe(e.Id, self.recipe_id_by_name.get("reinforced plates"))
+                            continue
+                    else:
+                        self.game.commands.command_set_recipe(e.Id, self.recipe_id_by_name.get("armor plates"))
+                        already_have_armor_plates = True
                 elif name == "experimental assembler":
                     self.game.commands.command_set_recipe(e.Id, self.recipe_id_by_name.get("colossus"))
                 else:
@@ -383,7 +432,7 @@ class Bot:
 
         self.game.commands.command_place_construction(construction_id, position)
         self.building_positions[construction].append(int(position))
-        print(f"buildings[{construction}]: {self.buildings[construction]}")
+        # print(f"buildings[{construction}]: {self.buildings[construction]}")
 
     def build_nearby(self, construction, position, with_gap=False):
         construction_id = None
@@ -428,7 +477,7 @@ class Bot:
         building_positions = list(map(lambda x: x.Position.position, buildings))
 
         print(f"Building {construction} near {building}")
-        print(f"buildings: {buildings}")
+        # print(f"buildings: {buildings}")
 
         construction_id = None
         if with_gap:
@@ -691,34 +740,37 @@ class Bot:
                     self.assign_recipes()
                     # self.enable_constructions()
 
+                if self.step == 13:
+                    self.build_drills("metal", 3)
+
+                # MARK manual strategy
+                # DEFENSE_DISTANCE
+                TALOS_DISTANCE = 260
+                JAGGERNAUT_AGGRESSION = 8
+                COLOSSUS_AGGRESSION = 3 
+
                 if self.step % 15 == 0:
-                    if random.random() > 0.95 or (self.step > 3 and self.step < 57):
+                    if random.random() > 0.9999:
                         self.scatter()
                     else:
                         # self.scatter()
-                        aggression = self.have_jaggernaut(12) or self.have_colossus(3)
+                        aggression = self.have_jaggernaut(JAGGERNAUT_AGGRESSION) or self.have_colossus(COLOSSUS_AGGRESSION)
                         # self.send_to_nucleus()
                         # self.attack_nearest_base()
                         self.attack(aggression=aggression, closest_to_self=True)
                         # self.attack_nearest_enemies(clear_orders=True)
 
-                # if self.step % 25 == 4:
-                #     self.send_to_nucleus()
-
-                if self.step == 13:
-                    self.build_drills("metal", 3)
-
-                # if self.step < 35:
-                #     self.destroy_building("talos")
-
                 if self.step == 29:
-                    print("Manual")
-                    #self.scatter()
+                    print("Manual Instructions")
+                    self.scatter()
+                    self.build_talos(with_gap=True, distance=TALOS_DISTANCE)
+                    self.scatter(include_atvs=True)
                     # self.send_to_nucleus()
-                    self.rebuild("concrete plant")
+                    # self.rebuild("blender")
                     # self.destroy_building("laboratory")
                     # self.build_nearby_building("smelter", "smelter")
                     # self.build_nearby_building("arsenal", "arsenal")
+                    # self.destroy_building("talos")
 
                     
                 if self.step % 50 == 0:                
@@ -728,7 +780,7 @@ class Bot:
 
                 if self.step % 40 == 11:
                     if self.have_jaggernaut(1) and self.have_resources("metal", 6) and self.have_resources("reinforced concrete", 6) and not self.have_construction("talos", 2):
-                        self.build_talos()
+                        self.build_talos(with_gap=True, distance=TALOS_DISTANCE)
                         # self.build_talos2()
                         return
 
@@ -740,7 +792,7 @@ class Bot:
                         self.build_nearby_drill("concrete plant", "metal", 0)
                         return
                     
-                    if not self.have_building("bot assembler", 1) and self.have_building_or_construction("concrete plant", 1) and self.should_build_building("concrete plant", 2):
+                    if not self.have_building_or_construction("bot assembler", 1) and self.have_building_or_construction("concrete plant", 1) and self.should_build_building("concrete plant", 2):
                         self.build_nearby_building("concrete plant", "concerte plant")
                         return
 
@@ -748,7 +800,7 @@ class Bot:
                         self.build_drills("crystals", 1)
                         return
 
-                    if not self.have_building("drill", 4) and self.should_build_building("talos", 1):
+                    if not self.have_building("drill", 4) and self.have_building("concrete plant", 2) and self.should_build_building("talos", 1):
                         self.build_nearby_drill("talos", "crystals", 0, with_gap=True)
                         return
                 
@@ -760,7 +812,7 @@ class Bot:
                         self.build_drills("oil", 1)
                         return
 
-                    if not self.have_building("pump", 1) and self.should_build_building("talos", 2):
+                    if not self.have_building("pump", 1) and self.have_building("concrete plant", 2) and self.should_build_building("talos", 2):
                         self.build_nearby_drill("talos", "oil", 0, with_gap=True)
                         return
                     
@@ -772,8 +824,8 @@ class Bot:
                         self.build_nearby_building("bot assembler", "laboratory", with_gap=c_strat)
                         return
 
-                    if not self.have_building("bot assembler", 1) and self.should_build_building("talos", 3):
-                        self.build_talos(with_gap=True, distance=200)
+                    if self.have_building("arsenal", 1) and self.should_build_building("talos", 3):
+                        self.build_talos(with_gap=True, distance=160)
                         return
 
                     if self.have_building("bot assembler", 1) and self.have_building("concrete plant", 2) and not c_strat:
@@ -785,8 +837,8 @@ class Bot:
                     if len(self.atvs) > 20 and self.have_building("factory", 1):
                         self.destroy_building("factory")
                     
-                    if self.have_building_or_construction("bot assembler", 1) and self.have_building("concrete plant", 2):
-                        self.destroy_building("concrete plant", 0)
+                    if (self.have_building_or_construction("bot assembler", 1) and self.have_building("concrete plant", 2) and self.have_resources("reinforced concrete", 5)) or (self.have_building("bot assembler", 1) and self.have_building("concrete plant", 2)):
+                        self.destroy_building("concrete plant")
                         return
 
                     # if self.have_building("bot assembler", 1) and self.have_jaggernaut(1) and self.should_build_building("bot assembler", 2):
@@ -839,7 +891,7 @@ class Bot:
                         self.build_nearby_building("laboratory", "smelter", with_gap=True)
                         return
                     
-                    if self.have_building("blender", 3) and self.have_building("laboratory", 2) and self.should_build_building("laboratory", 3):
+                    if self.have_building("blender", 1) and self.have_building("laboratory", 2) and self.should_build_building("laboratory", 3):
                         # quantum ray
                         self.build_nearby_building("laboratory", "generator")
                         return                    
